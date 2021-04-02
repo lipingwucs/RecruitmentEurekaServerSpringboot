@@ -1,0 +1,28 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4-Job -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruitment Agency App-Job Management</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+<h3>Recruitment Agency App </h3>
+<h1>Job  </h1>
+<ul>
+	<li><a th:href="@{http://localhost:8081/jobs_list.html}">List of all jobs</a></li>
+	<li><a th:href="@{http://localhost:8081//jobs_add.html}">post a new job</a></li>
+</ul>
+<h1>Organization  </h1>
+<ul>
+	<li><a th:href="@{http://localhost:8082/orgs_list.html}">List of all organizations</a></li>
+	<li><a th:href="@{http://localhost:8082//orgs_add.html}">post a new organization</a></li>
+</ul>
+<h1>Category  </h1>
+<ul>
+	<li><a th:href="@{http://localhost:8083/cats_list.html}">List of all Categories</a></li>
+	<li><a th:href="@{http://localhost:8083/cats_add.html}">post a new Category</a></li>
+</ul>
+</div>
+</body>
+</html>

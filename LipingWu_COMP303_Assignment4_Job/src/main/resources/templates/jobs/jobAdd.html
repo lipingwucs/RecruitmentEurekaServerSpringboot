@@ -1,0 +1,82 @@
+<!-- Liping Wu 300958061 COMP303 Assignment3 -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Post new Job</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+	//ref: see aboutus.html
+	//Apply JQuery- when page load to send request to REST API  POST /jobs
+	$(document).ready(function() {
+		if ($('#feedback').html() == "") {
+			$('#feedback').hide();
+		}
+
+	});
+</script>
+
+</head>
+<body>
+
+	<div layout:fragment="content" class="container">
+		<h1>Post a Job Information here</h1>
+
+		<form id="form-add" method="post" th:action="@{/jobs_add.html}"
+			th:object="${job}">
+			<div id="feedback" class="alert alert-danger pre_line"></div>
+			<table class="table table-hover table-striped">
+			<!-- jobId automatically generated
+				<tr>
+					<td><label for="jobId">Job Id</label></td>
+					<td><input type="number" th:field="*{jobId}" /></td>
+				</tr>
+			 -->
+				<tr>
+					<td><label for="jobCode">Job Code</label></td>
+					<td><input type="text" th:field="*{jobCode}" /> <span
+						class="alert alert-danger" th:if="${#fields.hasErrors('jobCode')}"
+						th:errors="*{jobCode}"></span></td>
+
+
+				</tr>
+				<tr>
+					<td><label for="jobName">Job Name</label></td>
+					<td><input type="text" th:field="*{jobName}" /> <span
+						class="alert alert-danger" th:if="${#fields.hasErrors('jobName')}"
+						th:errors="*{jobName}"></span></td>
+
+				</tr>
+				<tr>
+					<td><label for="jobDesc">Job Desc</label></td>
+					<td><input type="text" th:field="*{jobDesc}" /> <span
+						class="alert alert-danger" th:if="${#fields.hasErrors('jobDesc')}"
+						th:errors="*{jobDesc}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="numVacancy">No of Vacancy</label></td>
+					<td><input type="number" th:field="*{numVacancy}" 
+						max="999" /> <span class="alert alert-danger"
+						th:if="${#fields.hasErrors('numVacancy')}"
+						th:errors="*{numVacancy}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="pubDate">Publish Date</label></td>
+					<td><input type="date" th:field="*{pubDate}" />
+					<span
+						class="alert alert-danger" th:if="${#fields.hasErrors('pubDate')}"
+						th:errors="*{pubDate}"></span></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" id="btn-add" value="Add a Job "
+						class="btn btn-success"></input></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>

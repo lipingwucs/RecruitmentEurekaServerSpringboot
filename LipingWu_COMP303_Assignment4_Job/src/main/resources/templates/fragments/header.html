@@ -1,0 +1,32 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4 -->
+<header th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">                
+                <a class="navbar-brand" th:href="@{/}">Home</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- <li class="active"><a th:href="@{/}">Home</a></li>  -->
+                    <li><a th:href="@{/jobs_list.html}">List Jobs</a></li>
+                    <li><a th:href="@{/jobs_add.html}">post a new job</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <!--  <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li> -->
+                    <!--  <li><a target="swagger-ui" th:href="@{/swagger-ui.html}">Swagger2 UI</a></li> -->
+                    <li><a th:href="@{/aboutus}">About the project</a></li>
+                    <!-- <li><a href="../navbar-fixed-top/">logout</a></li> -->
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+    
+
+<h3 align="center" style="color: green; background-color: lightyellow" class="pre_line" 
+th:text="${sessionScope.tempMsg}" 
+th:if="${not #lists.isEmpty(tempMsg)}"></h3>
+
+
+</header>

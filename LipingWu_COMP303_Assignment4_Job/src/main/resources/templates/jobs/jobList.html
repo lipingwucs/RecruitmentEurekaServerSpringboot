@@ -1,0 +1,41 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4-Job -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Jobs List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<div layout:fragment="content" class="container_list">
+		<h1 align="center">Jobs List</h1>
+		<div id="feedback" class="alert alert-danger pre_line"></div>
+		<table id="tbl-list" class="table table-hover table-striped ">
+			<thead class="thead-dark">
+				<tr>
+					<th class="thead-dark">Job Id</th>
+					<th>Job Code</th>
+					<th>Job Name</th>
+					<th>Number of Vacancy</th>
+					<th>Publish Date</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tr th:each="job : ${jobList}">
+				<td th:text="${job.jobId}">Job Id</td>
+				<td th:text="${job.jobCode}">Job Code</td>
+				<td th:text="${job.jobName}">Job Name</td>
+				<td th:text="${job.numVacancy}">Number of Vacancy</td>
+				<td th:text="${job.pubDate}">Publish Date</td>
+				<td><a th:href="@{/jobs_details.html(jobId=${job.jobId})}">Details</a>
+					<a th:href="@{/jobs_update.html(jobId=${job.jobId})}">Update</a>
+					<a th:href="@{/jobs_delete.html(jobId=${job.jobId})}">Delete</a></td>
+			</tr>
+		</table>
+		<strong><a href="/">Go to home</a></strong>
+	</div>
+</body>
+</html>

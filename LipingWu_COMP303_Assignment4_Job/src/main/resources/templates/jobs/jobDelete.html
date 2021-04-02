@@ -1,0 +1,48 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4-Job -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Delete a job </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" >
+//ref: see aboutus.html
+//Apply JQuery- when page load to send request to REST API  POST /jobs
+$(document).ready(function () {	
+	if ($('#feedback').html() == "") {
+		$('#feedback').hide();
+	}
+	    
+});
+
+
+</script>
+</head>
+<body>
+
+<div layout:fragment="content" class="container">
+<h1>Delete a job</h1> 
+
+<h3 class="alert alert-danger" role="alert" th:text="${confirmMsg}"> </h3>
+	<form class="form-horizontal" method="post" th:object="${job}">
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="hidden"  th:field="*{jobId}" />
+				
+				<a class="btn btn-info" href="/job_list.html">Back to Job List
+					List</a> <input type="submit" class="btn btn-success"
+					value="confirm to delete this job">
+			</div>
+		</div>
+	</form>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
