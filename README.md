@@ -1,4 +1,4 @@
-# RecruitmenteEurekaServerSpringboot
+# RecruitmentEurekaServerSpringboot
 # Techbologies
 * Spring Boot
 * Thymeleaf Layout
