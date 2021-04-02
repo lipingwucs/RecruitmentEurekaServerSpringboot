@@ -1,0 +1,36 @@
+body {
+    background-color: rgba(100, 150, 15, 0.5);
+}
+
+.container_home {
+	width:600px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right:auto;
+	background-color:white ;
+	border: 4px;
+	min-height:700px;
+	}
+.container_list {
+	width: 1200px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right:auto;
+	background-color:white ;
+	border: 4px;
+	min-height:700px;
+	}
+
+.container {
+	width: 900px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right:auto;
+	background-color:white ;
+	border: 4px;
+	min-height:700px;
+	}
+
+.pre_line {
+	white-space: pre-line
+}

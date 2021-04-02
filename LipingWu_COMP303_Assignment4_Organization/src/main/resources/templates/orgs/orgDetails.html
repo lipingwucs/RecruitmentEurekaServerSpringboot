@@ -1,0 +1,55 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4-Organization -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Get an Organization Information Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div layout:fragment="content" class="container">
+<h1>An Organization Details Summary</h1>   
+	<form>
+		<table class="table table-hover table-stripe">
+			<tr>
+				<td><label for="orgId">Organization Id</label></td>
+				<td th:text="${organization.orgId}"></td>
+			</tr>
+			<tr>
+				<td><label for="orgName">Organization Name</label></td>
+				<td th:text="${organization.orgName}"></td>
+			</tr>
+			<tr>
+				<td><label for="address">Address</label></td>
+				<td th:text="${organization.address}"></td>
+			</tr>
+			<tr>
+				<td><label for="postalCode">Postal Code</label></td>
+				<td th:text="${organization.postalCode}"></td>
+			</tr>
+			<tr>
+				<td><label for="phoneNo">Phone No</label></td>
+				<td th:text="${organization.phoneNo}"></td>
+			</tr>
+			<tr>
+				<td><label for="email">email</label></td>
+				<td th:text="${organization.email}"></td>
+			</tr>
+				<tr>
+				<td><label for="website">website</label></td>
+				<td th:text="${organization.website}"></td>
+			</tr>
+
+		</table>
+	</form>
+</div>
+</body>
+</html>
+
+
+
+
+
+

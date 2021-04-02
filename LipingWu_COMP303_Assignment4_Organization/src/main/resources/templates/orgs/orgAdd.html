@@ -1,0 +1,87 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4 Organization -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Post a new Organization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+//ref: see aboutus.html
+//Apply JQuery- when page load to send request to REST API  POST /jobs
+$(document).ready(function () {	
+	if ($('#feedback').html() == "") {
+		$('#feedback').hide();
+	}	    
+});
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<h1>Post an Organization Information here</h1>
+
+		<form id="form-add" method="post" th:action="@{/orgs_add.html}"
+			th:object="${organization}">
+			<div id="feedback" class="alert alert-danger pre_line"></div>
+			<table class="table table-hover table-striped">
+			<!-- Generate auto
+				<tr>
+					<td><label for="orgId">Organization Id</label></td>
+					<td><input type="number" th:field="*{orgId}" readOnly="true"/></td>
+				</tr>
+			 -->
+				
+				<tr>
+					<td><label for="orgName">Organization Name</label></td>
+					<td><input type="text" th:field="*{orgName}" />
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('orgName')}"
+						th:errors="*{orgName}"></span></td>
+				</tr>
+				
+				<tr>
+					<td><label for="address">Address</label></td>
+					<td><input type="text" th:field="*{address}" />
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('address')}"
+						th:errors="*{address}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="postalCode">Postal Code</label></td>
+					<td><input type="text" th:field="*{postalCode}" placeholder="A0B 1C2" />
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('postalCode')}"
+						th:errors="*{postalCode}"></span></td>
+				</tr>
+				<tr>
+				
+					<td><label for="phoneNo">Phone</label></td>
+					<td><input type="text" th:field="*{phoneNo}" placeholder="416-100-1234"/>
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('phoneNo')}"
+						th:errors="*{phoneNo}"></span></td>
+				</tr>
+				
+				<tr>
+					<td><label for="email">Email</label></td>
+					<td><input type="text" th:field="*{email}" placeholder="abc@example.com" />
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></span></td>
+				</tr>
+				
+				<tr>
+					<td><label for="website">website</label></td>
+					<td><input type="text" th:field="*{website}" placeholder="www.example.com"/>
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('website')}"
+						th:errors="*{website}"></span></td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td><input type="submit" id="btn-add" value="Add an Organization Info"
+						class="btn btn-success"></input></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>
