@@ -13,4 +13,4 @@
 * Organiztion Web API CRUD
 
 # Screenshots
-[Screenshots]()
+[Screenshots](https://github.com/lipingwucs/RecruitmenteEurekaServerSpringboot/blob/master/LipingWu_COMP303_Assignment4_Screenshots.pdf)
