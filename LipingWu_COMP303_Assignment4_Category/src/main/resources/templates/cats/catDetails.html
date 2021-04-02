@@ -1,0 +1,43 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4-Category -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Get a Category Information Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div layout:fragment="content" class="container">
+<h1>A Category Details Summary</h1>   
+	<form>
+		<table class="table table-hover table-stripe">
+			<tr>
+				<td><label for="jobCatId">Job Category Id</label></td>
+				<td th:text="${category.jobCatId}"></td>
+			</tr>
+			<tr>
+				<td><label for="catCode">Category Code</label></td>
+				<td th:text="${category.catCode}"></td>
+			</tr>
+			<tr>
+				<td><label for="catName">Category Name</label></td>
+				<td th:text="${category.catName}"></td>
+			</tr>
+			<tr>
+				<td><label for="catDesc">Category Description</label></td>
+				<td th:text="${category.catDesc}"></td>
+			</tr>			
+
+		</table>
+	</form>
+</div>
+</body>
+</html>
+
+
+
+
+
+

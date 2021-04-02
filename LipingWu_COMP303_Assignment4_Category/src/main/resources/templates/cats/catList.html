@@ -1,0 +1,40 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4-Category -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Categories List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<div layout:fragment="content" class="container_list">
+		<h1 align="center">Categories List</h1>
+		<div id="feedback" class="alert alert-danger pre_line"></div>
+		<table id="tbl-list" class="table table-hover table-striped ">
+			<thead class="thead-dark">
+				<tr>
+					<th>Job Category Id</th>
+					<th>Category Code </th>
+					<th>Category Name </th>
+					<th>Category Description </th>	
+				</tr>
+			</thead>
+			<tr th:each="category : ${catList}">
+				<td th:text="${category.jobCatId}">Job Category Id</td>				
+				<td th:text="${category.catCode}">Category Code</td>
+				<td th:text="${category.catName}">Category Name </td>
+				<td th:text="${category.catDesc}">Category Description</td>
+				
+				
+				<td><a th:href="@{/cats_details.html(jobCatId=${category.jobCatId})}">Details</a>
+					<a th:href="@{/cats_update.html(jobCatId=${category.jobCatId})}">Update</a>
+					<a th:href="@{/cats_delete.html(jobCatId=${category.jobCatId})}">Delete</a></td>
+			</tr>
+		</table>
+		<strong><a href="/">Go to home</a></strong>
+	</div>
+</body>
+</html>

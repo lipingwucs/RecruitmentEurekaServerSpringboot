@@ -1,0 +1,62 @@
+<!-- Liping Wu 300958061 COMP303 Assignment4 -Category -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Post new Category</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+	//ref: see aboutus.html
+	$(document).ready(function() {
+		if ($('#feedback').html() === "") {
+			$('#feedback').hide();
+		}
+
+	});
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<h1>Update a Category Information here</h1>
+		<form id="form-update" method="post" th:action="@{/cats_update.html}"
+			th:object="${category}">
+			<div id="feedback" class="alert alert-danger pre_line"></div>
+			<table class="table table-hover table-striped">
+				<tr>
+					<td><label for="jobCatId">job CatId </label></td>
+					<td><input type="number" th:field="*{jobCatId}" readOnly="true"/></td>
+				</tr>
+				
+				<tr>
+					<td><label for="catCode">Category Code</label></td>
+					<td><input type="text" th:field="*{catCode}" />
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('catCode')}"
+						th:errors="*{catCode}"></span></td>
+				</tr>
+
+				<tr>
+					<td><label for="catName">Category Name</label></td>
+					<td><input type="text" th:field="*{catName}" />
+					<span class="alert alert-danger" th:if="${#fields.hasErrors('catName')}"
+						th:errors="*{catName}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="catDesc">Category Description</label></td>
+					<td><input type="text" th:field="*{catDesc}" />
+					 <span class="alert alert-danger" th:if="${#fields.hasErrors('catDesc')}"
+						th:errors="*{catDesc}"></span></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" id="btn-update"
+						value="Update" class="btn btn-warning"></input></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
+

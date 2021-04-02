@@ -1,0 +1,65 @@
+<!-- Liping Wu 300958061 COMP303 Assignment3 -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}">
+<head lang="en">
+<meta charset="UTF-8">
+<title>Post new Cat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+	//ref: see aboutus.html
+	//Apply JQuery- when page load to send request to REST API  POST /cats
+	$(document).ready(function() {
+		if ($('#feedback').html() == "") {
+			$('#feedback').hide();
+		}
+
+	});
+</script>
+
+</head>
+<body>
+
+	<div layout:fragment="content" class="container">
+		<h1>Post a Cat Information here</h1>
+
+		<form id="form-add" method="post" th:action="@{/cats_add.html}"
+			th:object="${category}">
+			<div id="feedback" class="alert alert-danger pre_line"></div>
+			<table class="table table-hover table-striped">
+			<!-- jobCatId automatically generated 			
+			 -->
+				<tr>
+					<td><label for="catCode">Cat Code</label></td>
+					<td><input type="text" th:field="*{catCode}" /> <span
+						class="alert alert-danger" th:if="${#fields.hasErrors('catCode')}"
+						th:errors="*{catCode}"></span></td>
+
+
+				</tr>
+				<tr>
+					<td><label for="catName">Cat Name</label></td>
+					<td><input type="text" th:field="*{catName}" /> <span
+						class="alert alert-danger" th:if="${#fields.hasErrors('catName')}"
+						th:errors="*{catName}"></span></td>
+
+				</tr>
+				<tr>
+					<td><label for="catDesc">Cat Desc</label></td>
+					<td><input type="text" th:field="*{catDesc}" /> <span
+						class="alert alert-danger" th:if="${#fields.hasErrors('catDesc')}"
+						th:errors="*{catDesc}"></span></td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td><input type="submit" id="btn-add" value="Add a Cat "
+						class="btn btn-success"></input></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+</html>
